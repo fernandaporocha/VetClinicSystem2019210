@@ -62,6 +62,10 @@ public class VetClinicMain {
 				case 3:
 					staffService.printStaffByCurrentTask();
 					break;
+				//It will print the staff that have the name typed by the user
+				case 4:
+					staffService.searchStaffByName();
+					break;		
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:

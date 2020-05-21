@@ -34,5 +34,23 @@ public class Utils {
 	public static int generateRandomSalary(int min, int max) {
 		return getRandom(min, max) * 1000;
 	}
+	
+	//It returns the text typed by the user
+	public static String readUserText() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String userText = null;
+		try {
+			userText = br.readLine();
+		} catch (IOException e) {
+			System.out.println("It was not possible to read the user input");
+		}
+
+		return userText;
+	}
+	
+	//This method verifies if the string1 contains the string2 ignoring the case
+	public static boolean containsIgnoreCase(String string1, String string2) {
+		return string1.toLowerCase().contains(string2.toLowerCase());
+	}
 
 }

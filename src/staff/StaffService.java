@@ -200,4 +200,28 @@ public class StaffService {
 			CLI.printBreak();
 		}
 	}
+	
+	//This method will print all the staff that the name matches with text typed by the user
+	public void searchStaffByName() {
+		boolean found = false;
+		String staffName = "";
+		//It will request a text until the user type something different of blank 
+		do {
+			System.out.println("Please type the name of staff:");
+			staffName = Utils.readUserText();
+		}while(staffName.trim().equals(""));
+		
+		//It will go through all the staff verifying if its name contains the typed text
+		for (StaffInterface s : staff) {
+			if (Utils.containsIgnoreCase(s.getName(), staffName)) {
+				found = true;
+				System.out.println(s.toString());
+			}
+		}
+		//It will inform the user if the staff wasn't found
+		if (!found) {
+			CLI.printErrorMessage("There are no staff with the typed name.", false);
+		}
+		CLI.printBreak();
+	}
 }
