@@ -40,4 +40,20 @@ public class CLI {
 		}
 	}
 	
+	//This method prints the list of categories of staff
+	//For printing only staff of the selected category
+	public static void printCategoryStaffOptions() {
+		System.out.println("What category of staff would you like to list? \n"
+				+ "Please type one of the following options: \n"
+				+ "1 - Veterinarian \n"
+				+ "2 - Nurse \n"
+				+ "3 - Nurse Trainee\n"
+				+ "4 - Receptionist \n"
+				+ "5 - IT Support \n"
+				+ "6 - Security \n"
+				+ "7 - Chef \n"
+				+ "0 - To go back");
+		printBreak();
+	}
+	
 }

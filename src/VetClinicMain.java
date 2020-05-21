@@ -54,6 +54,10 @@ public class VetClinicMain {
 				case 1:
 					staffService.printStaff(null);
 					break;
+				//It will print the staff by a category selected by the user
+				case 2:
+					staffService.printStaffByCategory();
+					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:

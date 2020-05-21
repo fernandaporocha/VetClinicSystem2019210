@@ -88,4 +88,39 @@ public class StaffService {
 		}
 		CLI.printBreak();
 	}
+	
+	//This method will print the Staff by a category selected byt the user
+	public void printStaffByCategory() {
+		CLI.printCategoryStaffOptions();
+		int selectedCategory = Utils.readUserNumber();
+		switch (selectedCategory) {
+			case 1:
+				printStaff(StaffType.VETERINARIAN);
+				break;
+			case 2:
+				printStaff(StaffType.NURSE);
+				break;
+			case 3:
+				printStaff(StaffType.NURSETRAINEE);
+				break;
+			case 4:
+				printStaff(StaffType.RECEPTIONIST);
+				break;
+			case 5:
+				printStaff(StaffType.ITSUPPORT);
+				break;
+			case 6:
+				printStaff(StaffType.SECURITY);
+				break;
+			case 7:
+				printStaff(StaffType.CHEF);
+				break;
+			case 0:
+				break;
+			default:
+				CLI.invalidChoice();
+				printStaffByCategory();
+				break;
+		}
+	}
 }
