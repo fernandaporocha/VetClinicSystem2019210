@@ -3,6 +3,7 @@ package animal;
 import java.util.ArrayList;
 import java.util.Random;
 
+import utils.CLI;
 import utils.NameGenerator;
 
 //This class contains all the methods used to manager the animals
@@ -40,5 +41,22 @@ public class AnimalService {
 			// It add the created animal to the animal arraylist
 			animals.add(animal);
 		}
+	}
+
+	// The printAnimal method will print all the animals of an specific type
+	// If the type is null, it will print all the animals
+	public void printAnimal(AnimalType type) {
+		if (type == null) {
+			for (Animal a : animals) {
+				System.out.println(a.toString());
+			}
+		} else {
+			for (Animal a : animals) {
+				if (type == a.identify()) {
+					System.out.println(a.toString());
+				}
+			}
+		}
+		CLI.printBreak();
 	}
 }

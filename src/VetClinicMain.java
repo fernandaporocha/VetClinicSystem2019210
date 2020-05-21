@@ -10,12 +10,14 @@ public class VetClinicMain {
 
 	// The constructor of the class VetClinicMain
 	public VetClinicMain() {
-		// It instantiates the staff service
+		// It instantiates the staff and animal service
 		staffService = new StaffService();
-		//It creates the animal and set them to the veterinarians
-		animalService.createAnimals(1000);
+		animalService = new AnimalService();
+		
 		// It creates the medical staff
 		staffService.createMedicalStaff();
+		//It creates the animal and set them to the veterinarians
+		animalService.createAnimals(1000);
 		
 		// It creates the admin staff
 		staffService.createAdminStaff();
@@ -68,7 +70,11 @@ public class VetClinicMain {
 				//It will print the staff that have the name typed by the user
 				case 4:
 					staffService.searchStaffByName();
-					break;		
+					break;	
+				//It will print all the animals
+				case 5:
+					animalService.printAnimal(null);
+					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:
