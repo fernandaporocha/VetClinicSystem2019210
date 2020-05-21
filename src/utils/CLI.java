@@ -76,4 +76,18 @@ public class CLI {
 		printBreak();
 	}
 	
+	//This method will print the types of animals available for the search
+	public static void printAnimalTypeOptions() {
+		System.out.println("What type of animal would you like to list? \n"
+				+ "Please type one of the following options: \n"
+				+ "1 - Cat \n"
+				+ "2 - Dog \n"
+				+ "3 - Hamster \n"
+				+ "4 - Horse \n"
+				+ "5 - Rabbit \n"
+				+ "0 - To go back");
+		printBreak();
+
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import utils.CLI;
 import utils.NameGenerator;
+import utils.Utils;
 
 //This class contains all the methods used to manager the animals
 public class AnimalService {
@@ -58,5 +59,40 @@ public class AnimalService {
 			}
 		}
 		CLI.printBreak();
+	}
+
+	// This method will print all animals of a given type
+	public void printAnimalByType() {
+		// It shows the options for the user
+		CLI.printAnimalTypeOptions();
+		// It reads the chosen option
+		int selectedType = Utils.readUserNumber();
+		// It will call the method to print the animals of the selected type
+		switch (selectedType) {
+		case 1:
+			printAnimal(AnimalType.CAT);
+			break;
+		case 2:
+			printAnimal(AnimalType.DOG);
+			break;
+		case 3:
+			printAnimal(AnimalType.HAMSTER);
+			break;
+		case 4:
+			printAnimal(AnimalType.HORSE);
+			break;
+		case 5:
+			printAnimal(AnimalType.RABBIT);
+			break;
+		case 0:
+			break;
+		// If the user typed invalid characters or a number out of the range
+		// it will show an error message and print the main options
+		case -1:
+		default:
+			CLI.invalidChoice();
+			break;
+
+		}
 	}
 }
