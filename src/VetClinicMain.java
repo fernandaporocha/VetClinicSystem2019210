@@ -1,3 +1,4 @@
+import animal.AnimalService;
 import staff.StaffService;
 import utils.CLI;
 import utils.Utils;
@@ -5,12 +6,14 @@ import utils.Utils;
 //This is the main class of the project
 public class VetClinicMain {
 	StaffService staffService;
+	AnimalService animalService;
 
 	// The constructor of the class VetClinicMain
 	public VetClinicMain() {
 		// It instantiates the staff service
 		staffService = new StaffService();
-
+		//It creates the animal and set them to the veterinarians
+		animalService.createAnimals(1000);
 		// It creates the medical staff
 		staffService.createMedicalStaff();
 		
