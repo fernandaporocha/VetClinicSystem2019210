@@ -1,4 +1,5 @@
 import utils.CLI;
+import utils.Utils;
 
 //This is the main class of the project
 public class VetClinicMain {
@@ -19,6 +20,8 @@ public class VetClinicMain {
 		while (userOption != 0) {
 			//It prints the main options
 			CLI.printMainOptions();
+			//It reads the user chosen option
+			userOption = Utils.readUserNumber();
 			
 		}
 		//When the user chooses option 0, it will stop the while loop and close the program.
