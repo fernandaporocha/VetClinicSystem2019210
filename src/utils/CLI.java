@@ -1,8 +1,9 @@
 package utils;
 
-//The class CLI
+//The class CLI will manage the messages that will be printed to the users
 public class CLI {
 	
+	// This method will print the main options to the user
 	public static void printMainOptions() {
 		System.out.println("Please type one of the following options: \n"
 				+ "1 - List all staff \n"
@@ -19,8 +20,24 @@ public class CLI {
 		printBreak();
 	}
 	
+	// This class only print a separator between the blocks of text, for making it more organised and easier to read
 	public static void printBreak() {
 		System.out.println("-------------------------------------------------------------------------------------------------");
+	}
+	
+	//The invalidChoice prints a error message to the user when an invalid option was chosen
+	public static void invalidChoice() {
+		printErrorMessage("Invalid option. Please try again.", true);
+	}
+	
+	//This method prints an given error message
+	public static void printErrorMessage (String msg, boolean printBreak) {
+		System.err.println(msg);
+		//Flush was used because it wasn't printing the message in the correct order
+		System.err.flush();
+		if(printBreak) {
+			printBreak();
+		}
 	}
 	
 }

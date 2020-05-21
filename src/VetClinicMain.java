@@ -34,6 +34,8 @@ public class VetClinicMain {
 			CLI.printMainOptions();
 			// It reads the user chosen option
 			userOption = Utils.readUserNumber();
+			//It executes the option selected by the user
+			vetClinic.executeSelectedTask(userOption);
 
 		}
 		// When the user chooses option 0, it will stop the while loop and close the
@@ -41,5 +43,20 @@ public class VetClinicMain {
 		System.exit(0);
 
 	}
+	
+	//The method executeSelectedTask will receive a int that indicates which task should be executed
+		public void executeSelectedTask(int selectedTask) {
+			switch (selectedTask) {
+				//It doesn't do anything, the main method will close the system
+				case 0:
+					break;
+				//If the user typed letters or an invalid option, it will show a message and show the options again
+				case -1:
+				default:
+					CLI.invalidChoice();
+					break;
+
+			}
+		}
 
 }
