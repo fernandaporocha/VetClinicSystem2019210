@@ -95,4 +95,23 @@ public class AnimalService {
 
 		}
 	}
+	
+	//This method will print all the animals that the name matches with text typed by the user
+	public void printAnimalByName() {
+		boolean found = false;
+		System.out.println("Please type the name of the animal:");
+		String animalName = Utils.readUserText();
+		for (AnimalInterface a : animals) {
+			if (Utils.containsIgnoreCase(a.getName(), animalName)) {
+				found = true;
+				System.out.println(a.toString());
+			}
+		}
+		if (!found) {
+			CLI.printErrorMessage("There are no animals with the typed name.", true);
+			CLI.printMainOptions();
+		}else {
+			CLI.printBreak();
+		}
+	}
 }

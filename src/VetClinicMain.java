@@ -79,6 +79,10 @@ public class VetClinicMain {
 				case 6:
 					animalService.printAnimalByType();
 					break;
+					//It will print the animals that have the name typed by the user
+				case 7:
+					animalService.printAnimalByName();
+					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:
