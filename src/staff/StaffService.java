@@ -2,6 +2,7 @@ package staff;
 
 import java.util.ArrayList;
 
+import utils.CLI;
 import utils.NameGenerator;
 import utils.Utils;
 
@@ -62,5 +63,29 @@ public class StaffService {
 					Utils.generateRandomSalary(30, 40),
 					StaffTask.getRandomTask(staffType)));
 		}
+	}
+	
+	//The method printStaff will print the staff information
+	//If the category is null, it will print all the staff
+	//If the category is informed it will print only the staff that belongs to the selected category
+	public void printStaff(StaffType category) {
+		boolean found = false;
+		if (category == null) {
+			found = staff.size()>0?true:false;
+			for (StaffInterface s : staff) {
+				System.out.println(s.toString());
+			}
+		}else {
+			for (StaffInterface s : staff) {
+				 if (category == s.identify()) {
+					found = true;
+					System.out.println(s.toString());
+				}
+			}
+		}
+		if (!found) {
+			CLI.printErrorMessage("No staff were found.", false);
+		}
+		CLI.printBreak();
 	}
 }

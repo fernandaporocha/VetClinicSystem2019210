@@ -50,6 +50,10 @@ public class VetClinicMain {
 				//It doesn't do anything, the main method will close the system
 				case 0:
 					break;
+				//It will print all the Staff
+				case 1:
+					staffService.printStaff(null);
+					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:
