@@ -123,4 +123,81 @@ public class StaffService {
 				break;
 		}
 	}
+	
+	//This method will print all the task options for the user
+	//and will print the staff performing the selected task
+	public void printStaffByCurrentTask() {
+		//It prints the options
+		CLI.printListStaffByTaskOptions();
+		//It gets user choice
+		int selectedTask = Utils.readUserNumber();
+		switch (selectedTask) {
+			case 1: 
+				printStaffByTask("Making Appointment");
+				break;
+			case 2: 
+				printStaffByTask("Rescheduling Appointment");
+				break;
+			case 3: 
+				printStaffByTask("Printing Documents");
+				break;
+			case 4:
+				printStaffByTask("Answering phone");
+				break;
+			case 5:
+				printStaffByTask("Formatting a PC");
+				break;
+			case 6:
+				printStaffByTask("Fixing Printer");
+				break;
+			case 7:
+				printStaffByTask("Checking cameras");
+				break;
+			case 8: 
+				printStaffByTask("Removing a person");
+				break;
+			case 9:
+				printStaffByTask("Cutting Vegetables");
+				break;
+			case 10: 
+				printStaffByTask("Preparing Meals");
+				break;
+			case 11: 
+				printStaffByTask("Washing Dishes");
+				break;
+			case 0:
+				break;
+			//If the type invalid characters it print the option list again
+			case -1: 
+				printStaffByCurrentTask();
+				break;
+			default:
+				CLI.invalidChoice();
+				printStaffByCurrentTask();
+				break;
+		}
+	}
+	
+	//This method will print only the staff information of the staff performing the given task
+	private void printStaffByTask(String task) {
+		boolean found = false;
+		//It will go through all the staff 
+		for (StaffInterface s : staff) {
+			//it verifies if the user is an AdminStaff
+			if (s instanceof AdminStaff) {
+				//It verifies if the staff is performing the given task
+				if (((AdminStaff) s).getCurrentTask().equalsIgnoreCase(task)) {
+					found = true;
+					System.out.println(s.toString());
+				}
+			}
+		}
+		//If it wasn't found a user performing the selected task, it will inform the user
+		if (!found) {
+			CLI.printErrorMessage("There are no staff performing the selected task.", true);
+			printStaffByCurrentTask();
+		}else {
+			CLI.printBreak();
+		}
+	}
 }

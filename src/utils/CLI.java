@@ -56,4 +56,24 @@ public class CLI {
 		printBreak();
 	}
 	
+	//The method printListStaffByTaskOptions will print the options available
+	//in the functionality Print Staff by Current Task
+	public static void printListStaffByTaskOptions() {
+		System.out.println("List staff performing which task? \n"
+				+ "Please type one of the following options: \n"
+				+ "1 - Making Appointment \n"
+				+ "2 - Rescheduling Appointment \n"
+				+ "3 - Printing Documents\n"
+				+ "4 - Answering phone \n"
+				+ "5 - Formatting a PC \n"
+				+ "6 - Fixing Printer \n"
+				+ "7 - Checking cameras \n"
+				+ "8 - Removing a person \n"
+				+ "9 - Cutting Vegetables \n"
+				+ "10 - Preparing Meals \n"
+				+ "11 - Washing Dishes \n"
+				+ "0 - To go back");
+		printBreak();
+	}
+	
 }
