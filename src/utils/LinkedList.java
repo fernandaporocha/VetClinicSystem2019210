@@ -57,4 +57,18 @@ public class LinkedList {
 		return toReturn;
 		
 	}
+	
+	//This method will print the position of each animal in the veterinarian waiting list
+	public String toStringWithOrder() {
+		String toReturn = "";
+		Animal current = this.first;
+		int i = 1;
+		
+		while(current != null) {
+			toReturn += i + " -> " + current + ((current.getNext()!=null)?" \n ":"");
+			current = current.getNext();
+			i++;
+		}	
+		return toReturn;
+	}
 }

@@ -80,9 +80,17 @@ public class VetClinicMain {
 				case 6:
 					animalService.printAnimalByType();
 					break;
-				//It will print the animals that have the name typed by the user
+					//It will print the animals that have the name typed by the user
 				case 7:
 					animalService.printAnimalByName();
+					break;
+				//It will print all me animals that are in the waiting list of a selected veterinarian
+				case 8:
+					staffService.listAnimalsByVeterinarian(false);
+					break;
+				//It will print all me animals that are in the waiting list of a selected veterinarian in an ordered way
+				case 9:
+					staffService.listAnimalsByVeterinarian(true);
 					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:

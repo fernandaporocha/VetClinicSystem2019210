@@ -225,20 +225,106 @@ public class StaffService {
 		}
 		CLI.printBreak();
 	}
+	
+	//This method will list all the animals 
+	public void listAnimalsByVeterinarian(boolean order) {
+		ArrayList<Veterinarian> foundVet = searchVeterinarian();
+		if (foundVet != null) {
+			//If more than a veterinarian was found (it can happen if the search was made by name)
+			//It will print the animals of all the found staff
+			for (Veterinarian vet : foundVet) {
+				System.out.println(vet.printAllAnimals(order));
+			}
+			CLI.printBreak();
+		}else {
+			//If no veterinarian was found, it will allows the user do another search
+			listAnimalsByVeterinarian(order);
+		}	
+	}
+	
+	//This method allows the searching of the veterinarian by StaffNumber or name
+	public ArrayList<Veterinarian> searchVeterinarian() {
+		int option = 0;
+		//it will print the options to the user until the chooses a valid one
+		do {
+			CLI.printVetSearchOptions();
+			option = Utils.readUserNumber();
+			if (option < 0 || option > 2) {
+				CLI.invalidChoice();
+			}
+		} while (option < 0 || option > 2);
+
+		ArrayList<Veterinarian> foundStaff = new ArrayList<Veterinarian>();
+
+		switch (option){
+			case 0:
+				return null;
+			case 1:
+				System.out.println("Please type the Staff Number of veterinarian:");
+				int staffNumber = Utils.readUserNumber();
+				if(!verifyVeterinarianStaffNumber(staffNumber)) {
+					return null;
+				}else {
+					foundStaff = searchVeterinarianByStaffNumberOrName(null, staffNumber);
+				}
+				break;
+			case 2:
+				System.out.println("Please type the name of staff:");
+				String staffName = Utils.readUserText();
+				foundStaff = searchVeterinarianByStaffNumberOrName(staffName, null);	
+		}
 		
+		if (foundStaff.size()==0) {
+			CLI.printErrorMessage("No staff were found.", true);
+			return null;
+		}
+		return foundStaff;
+	}
+	
+	//This method will receive a StaffNumber or a Name and will return all the 
+	public ArrayList<Veterinarian> searchVeterinarianByStaffNumberOrName(String name, Integer staffNumber) {
+		ArrayList<Veterinarian> foundVet = new ArrayList<Veterinarian>();
+		if (name != null) {
+			for (Veterinarian vet : vetStaff) {
+				if (Utils.containsIgnoreCase(vet.getName(), name)) {
+					foundVet.add(vet);
+				}
+			}
+		} else if (staffNumber != null) {
+			for (Veterinarian vet : vetStaff) {
+				if (vet.getStaffNumber() == staffNumber) {
+					foundVet.add(vet);
+				}
+			}
+		}
+		return foundVet;
+	}
+	
+	//This method verifies if the staff number is valid and belongs to a veterinarian
+	public boolean verifyVeterinarianStaffNumber(int staffNumber) {
+		if(staffNumber==-1){
+			CLI.printErrorMessage("The Staff Number has to be a number.", true);
+			return false;
+		}else if (staffNumber<0||staffNumber>1000) {
+			CLI.printErrorMessage("There is no veterinarian with the typed Staff Number.", true);
+			return false;
+		}else if(staffNumber>5) {
+			CLI.printErrorMessage("The typed Staff Number doesn't belong to a Veterinarian.", true);
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
 	//This method will add all the given animals to a veterinarian waiting list
 	public void assignAnimalToVeterinarian(ArrayList<Animal> animals) {
 		int iStaff = 0;
 		for(Animal animal: animals) {
 			vetStaff.get(iStaff).addAnimal(animal);
-			if (iStaff == 4) {
+			if (iStaff == (vetStaff.size()-1)) {
 				iStaff = 0;
 			} else {
 				iStaff++;
-			}
-			
-			if(iStaff==4) {
-				iStaff=0;
 			}
 		}	
 	}

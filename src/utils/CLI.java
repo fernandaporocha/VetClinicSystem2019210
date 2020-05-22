@@ -87,7 +87,16 @@ public class CLI {
 				+ "5 - Rabbit \n"
 				+ "0 - To go back");
 		printBreak();
-
+	}
+	
+	//This method will let the user choose how he will search the veterinarian, by name or by staff number
+	public static void printVetSearchOptions() {
+		System.out.println("How would you like to search the Veterinarian? \n"
+				+ "Please type one of the following options: \n"
+				+ "1 - By Id \n"
+				+ "2 - By Name \n"
+				+ "0 - To go back");
+		printBreak();
 	}
 	
 }
