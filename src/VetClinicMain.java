@@ -92,6 +92,10 @@ public class VetClinicMain {
 				case 9:
 					staffService.listAnimalsByVeterinarian(true);
 					break;
+				//It will move to the next pet of the waiting list of the selected veterinarian
+				case 10:
+					staffService.moveToNextPet();
+					break;
 				//If the user typed letters or an invalid option, it will show a message and show the options again
 				case -1:
 				default:

@@ -93,10 +93,20 @@ public class CLI {
 	public static void printVetSearchOptions() {
 		System.out.println("How would you like to search the Veterinarian? \n"
 				+ "Please type one of the following options: \n"
-				+ "1 - By Id \n"
+				+ "1 - By Staff Number \n"
 				+ "2 - By Name \n"
 				+ "0 - To go back");
 		printBreak();
+	}
+	
+	//This method confirms if the user wants to move to the next animal
+	public static boolean printNextAnimalMessage() {
+		System.out.println("Would you like to move to the next animal?"
+				+ "\n 1 - Yes"
+				+ "\n Anything else - No");
+		int option = Utils.readUserNumber();
+		//if option equals 1, returns true, if not returns false
+		return option==1;
 	}
 	
 }

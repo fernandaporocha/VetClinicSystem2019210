@@ -71,4 +71,9 @@ public class LinkedList {
 		}	
 		return toReturn;
 	}
+	
+	//This method returns the next animal in a printable way
+	public String nextToString() {
+		return this.first.getNext().toString();
+	}
 }

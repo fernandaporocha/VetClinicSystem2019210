@@ -328,4 +328,35 @@ public class StaffService {
 			}
 		}	
 	}
+	
+	//This method will inform the user what is the next animal in the waiting list of the selected veterinarian
+	//And will let the user move to the next animal
+	public void moveToNextPet() {
+		Veterinarian vet = searchVeterinarianByStaffNumber();
+		if (vet!=null) {
+			System.out.println(vet.printNextAnimal());
+			while (CLI.printNextAnimalMessage()) {
+				vet.moveToNextPet();
+				System.out.println(vet.printNextAnimal());
+			}
+			CLI.printBreak();
+		}
+	}
+	
+	//This method search a veterinarian by his staff number
+	public Veterinarian searchVeterinarianByStaffNumber() {
+		System.out.println("Please type the Staff Number of veterinarian:");
+		int staffNumber = Utils.readUserNumber();
+		//It verifies if it 
+		if(!verifyVeterinarianStaffNumber(staffNumber)){
+			return null;
+		}else {
+			for(Veterinarian vet: vetStaff) {
+				if (vet.getStaffNumber() == staffNumber) {
+					return vet;
+				}
+			}
+			return null;
+		}
+	}
 }

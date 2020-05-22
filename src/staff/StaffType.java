@@ -1,5 +1,6 @@
 package staff;
 
+//Enum of staff types
 public enum StaffType {
 	VETERINARIAN,
 	NURSE,
