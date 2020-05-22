@@ -3,7 +3,7 @@ package animal;
 public abstract class Animal implements AnimalInterface{
 	//The id of animal cannot be changed
 	protected final int id;
-	// The name of the animal
+	//The name of the animal
 	protected String name;
 	//The age of the animal
 	protected int age;
@@ -21,7 +21,7 @@ public abstract class Animal implements AnimalInterface{
 		this.next = null;
 	}
 	
-	//The getters and setters is needed only for the variable next
+	//The getters and setters are needed only for the variable next
 	public Animal getNext() {
 		return next;
 	}
@@ -30,12 +30,10 @@ public abstract class Animal implements AnimalInterface{
 		this.next = next;
 	}
 
-	//The override of the method toString, for print the animal information in a friendly way
+	//The override of the method toString, for printing the animal information
 	@Override
 	public String toString() {
 		return this.identify() + " [Id=" + id + ", Name=" + name + ", Age=" + age + ", Medical Condition=" + medicalCondition + "]";
 	}
-	
 }
-
 

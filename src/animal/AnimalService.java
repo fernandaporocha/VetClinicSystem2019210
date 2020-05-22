@@ -7,12 +7,12 @@ import utils.CLI;
 import utils.NameGenerator;
 import utils.Utils;
 
-//This class contains all the methods used to manager the animals
+//This class contains all the methods used to manage the animals
 public class AnimalService {
 
 	// The array list animals contains all the created animals
 	private ArrayList<Animal> animals;
-	// The variable animalId is used generate an unique staff number for each staff
+	// The variable animalId is used to generate an unique staff number for each staff
 	private AnimalId animalId;
 
 	// It returns the array list of animals
@@ -20,7 +20,7 @@ public class AnimalService {
 		return animals;
 	}
 
-	// AnimalService constructor, instantiate the array list and id manager of
+	// AnimalService constructor, instantiates the array list and id manager of
 	// animals
 	public AnimalService() {
 		animals = new ArrayList<Animal>();
@@ -39,7 +39,7 @@ public class AnimalService {
 			// It will creates a new animal with random name, type, age and disease
 			animal = AnimalFactory.buildAnimal(animalType, animalId.getId(), NameGenerator.getRandomAnimalName(),
 					r.nextInt(10), NameGenerator.getRandomAnimalDisease());
-			// It add the created animal to the animal arraylist
+			// It adds the created animal to the animal arraylist
 			animals.add(animal);
 		}
 	}
@@ -88,11 +88,9 @@ public class AnimalService {
 			break;
 		// If the user typed invalid characters or a number out of the range
 		// it will show an error message and print the main options
-		case -1:
 		default:
 			CLI.invalidChoice();
 			break;
-
 		}
 	}
 	
@@ -110,7 +108,7 @@ public class AnimalService {
 		if (!found) {
 			CLI.printErrorMessage("There are no animals with the typed name.", true);
 			CLI.printMainOptions();
-		}else {
+		} else {
 			CLI.printBreak();
 		}
 	}

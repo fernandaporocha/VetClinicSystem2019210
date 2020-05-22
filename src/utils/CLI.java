@@ -20,17 +20,17 @@ public class CLI {
 		printBreak();
 	}
 	
-	// This class only print a separator between the blocks of text, for making it more organised and easier to read
+	// This class only prints a separator between the blocks of text, for making it more organised and easier to read
 	public static void printBreak() {
 		System.out.println("-------------------------------------------------------------------------------------------------");
 	}
 	
-	//The invalidChoice prints a error message to the user when an invalid option was chosen
+	//The invalidChoice prints an error message to the user when an invalid option was chosen
 	public static void invalidChoice() {
 		printErrorMessage("Invalid option. Please try again.", true);
 	}
 	
-	//This method prints an given error message
+	//This method prints a given error message
 	public static void printErrorMessage (String msg, boolean printBreak) {
 		System.err.println(msg);
 		//Flush was used because it wasn't printing the message in the correct order
@@ -89,7 +89,7 @@ public class CLI {
 		printBreak();
 	}
 	
-	//This method will let the user choose how he will search the veterinarian, by name or by staff number
+	//This method will let the user choose how they will search the veterinarian, by name or by staff number
 	public static void printVetSearchOptions() {
 		System.out.println("How would you like to search the Veterinarian? \n"
 				+ "Please type one of the following options: \n"

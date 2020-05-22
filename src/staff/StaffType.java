@@ -8,5 +8,5 @@ public enum StaffType {
 	RECEPTIONIST,
 	ITSUPPORT,
 	SECURITY,
-	CHEF;	
+	CHEF;
 }

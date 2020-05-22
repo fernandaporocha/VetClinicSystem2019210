@@ -14,8 +14,7 @@ public class StaffService {
 	private ArrayList<MedicalStaff> medicalStaff;
 	// The array list medicalStaff contains all the created veterinarians
 	private ArrayList<Veterinarian> vetStaff;
-	// The variable staffNumber is used generate an unique staff number for each
-	// staff
+	// The variable staffNumber is used generate an unique staff number for each staff
 	private StaffNumber staffNumber;
 
 	//The StaffService constructor
@@ -28,7 +27,7 @@ public class StaffService {
 	}
 
 	//The createMedicalStaff method will create Veterinarians, Nurses and Trainee Nurses
-	//All the medical staff are create with a unique Staff Number, random name and random salary (according to its type)
+	//All the medical staff are create with an unique Staff Number, random name and random salary (according to its type)
 	public void createMedicalStaff() {
 		//It will create 30 medical staff
 		for (int i = 0; i < 30; i++) {
@@ -40,7 +39,7 @@ public class StaffService {
 								NameGenerator.getRandomStaffName(), Utils.generateRandomSalary(60, 70)));
 				medicalStaff.add(vetStaff.get(i));
 			} else if (i >= 5 && i < 20) {
-				//it creates 15 nurses
+				//It creates 15 nurses
 				medicalStaff.add((MedicalStaff) StaffFactory.buildStaff(StaffType.NURSE, staffNumber.getStaffNumber(),
 						NameGenerator.getRandomStaffName(), Utils.generateRandomSalary(50, 55)));
 			} else {
@@ -50,12 +49,12 @@ public class StaffService {
 								NameGenerator.getRandomStaffName(), Utils.generateRandomSalary(30, 35)));
 			}
 		}
-		//The medical staff area add in the staff array
+		//The medical staff are added to the staff array
 		staff.addAll(medicalStaff);
 	}
 	
 	//The createAdminStaff method will create randomly Chef, ITSupport, Receptionist and Security
-	//All the admin staff are create with a unique Staff Number, random type, random name and random salary
+	//All the admin staff are created with an unique Staff Number, random type, random name and random salary
 	public void createAdminStaff() {
 		for (int i = 0; i < 20; i++) {
 			//Admin type goes to 3 to 7, getting a Random value between these values
@@ -90,7 +89,7 @@ public class StaffService {
 		CLI.printBreak();
 	}
 	
-	//This method will print the Staff by a category selected byt the user
+	//This method will print the Staff by a category selected by the user
 	public void printStaffByCategory() {
 		CLI.printCategoryStaffOptions();
 		int selectedCategory = Utils.readUserNumber();
@@ -193,7 +192,7 @@ public class StaffService {
 				}
 			}
 		}
-		//If it wasn't found a user performing the selected task, it will inform the user
+		//If there is no staff performing the selected task, it will inform the user
 		if (!found) {
 			CLI.printErrorMessage("There are no staff performing the selected task.", true);
 			printStaffByCurrentTask();
@@ -206,11 +205,11 @@ public class StaffService {
 	public void searchStaffByName() {
 		boolean found = false;
 		String staffName = "";
-		//It will request a text until the user type something different of blank 
+		//It will request a text until the user type something different from blank
 		do {
 			System.out.println("Please type the name of staff:");
 			staffName = Utils.readUserText();
-		}while(staffName.trim().equals(""));
+		} while(staffName.trim().equals(""));
 		
 		//It will go through all the staff verifying if its name contains the typed text
 		for (StaffInterface s : staff) {
@@ -226,7 +225,7 @@ public class StaffService {
 		CLI.printBreak();
 	}
 	
-	//This method will list all the animals 
+	//This method will list all the animals
 	public void listAnimalsByVeterinarian(boolean order) {
 		ArrayList<Veterinarian> foundVet = searchVeterinarian();
 		if (foundVet != null) {
@@ -237,7 +236,7 @@ public class StaffService {
 			}
 			CLI.printBreak();
 		}else {
-			//If no veterinarian was found, it will allows the user do another search
+			//If no veterinarian was found, it will allow the user do another search
 			listAnimalsByVeterinarian(order);
 		}	
 	}
@@ -245,7 +244,7 @@ public class StaffService {
 	//This method allows the searching of the veterinarian by StaffNumber or name
 	public ArrayList<Veterinarian> searchVeterinarian() {
 		int option = 0;
-		//it will print the options to the user until the chooses a valid one
+		//It will print the options to the user until they choose a valid one
 		do {
 			CLI.printVetSearchOptions();
 			option = Utils.readUserNumber();
@@ -281,7 +280,7 @@ public class StaffService {
 		return foundStaff;
 	}
 	
-	//This method will receive a StaffNumber or a Name and will return all the 
+	//This method will receive a StaffNumber or a Name and will return all the veterinarians found
 	public ArrayList<Veterinarian> searchVeterinarianByStaffNumberOrName(String name, Integer staffNumber) {
 		ArrayList<Veterinarian> foundVet = new ArrayList<Veterinarian>();
 		if (name != null) {
@@ -302,16 +301,16 @@ public class StaffService {
 	
 	//This method verifies if the staff number is valid and belongs to a veterinarian
 	public boolean verifyVeterinarianStaffNumber(int staffNumber) {
-		if(staffNumber==-1){
+		if (staffNumber == -1){
 			CLI.printErrorMessage("The Staff Number has to be a number.", true);
 			return false;
-		}else if (staffNumber<0||staffNumber>1000) {
+		} else if (staffNumber < 0 || staffNumber > 1000) {
 			CLI.printErrorMessage("There is no veterinarian with the typed Staff Number.", true);
 			return false;
-		}else if(staffNumber>5) {
+		} else if(staffNumber > 5) {
 			CLI.printErrorMessage("The typed Staff Number doesn't belong to a Veterinarian.", true);
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
@@ -343,11 +342,11 @@ public class StaffService {
 		}
 	}
 	
-	//This method search a veterinarian by his staff number
+	//This method searches a veterinarian by his staff number
 	public Veterinarian searchVeterinarianByStaffNumber() {
 		System.out.println("Please type the Staff Number of veterinarian:");
 		int staffNumber = Utils.readUserNumber();
-		//It verifies if it 
+		//It verifies if it has a valid staff number
 		if(!verifyVeterinarianStaffNumber(staffNumber)){
 			return null;
 		}else {

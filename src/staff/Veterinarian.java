@@ -19,7 +19,7 @@ public class Veterinarian extends MedicalStaff{
 		return StaffType.VETERINARIAN;
 	}
 	
-	//It add the given animal to the animal linkedlist
+	//It adds the given animal to the animal linkedlist
 	public void addAnimal(Animal animal) {
 		myAnimals.add(animal);		
 	}

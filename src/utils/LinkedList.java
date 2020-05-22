@@ -2,7 +2,7 @@ package utils;
 import animal.Animal;
 
 //This class is based on the LinkedList class created in the Algorithms and Constructor classes
-//I let only the methods that will be used 
+//I left only the methods that will be used
 public class LinkedList {
 	private Animal first;
 	private Animal last;

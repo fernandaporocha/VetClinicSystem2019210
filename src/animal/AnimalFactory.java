@@ -7,23 +7,20 @@ public class AnimalFactory {
 	//Based on the animal type the proper constructor will be used
 	public static Animal buildAnimal(AnimalType animalType, int id, String name, int age, String disease) {
 		
-		if (animalType==AnimalType.CAT){	
-			return new Cat(id, name, age, disease);
-		}
-		else if (animalType==AnimalType.DOG){	
-			return new Dog(id, name, age, disease);
-		}
-		else if (animalType==AnimalType.HAMSTER){	
-			return new Hamster(id, name, age, disease);
-		}
-		else if (animalType==AnimalType.HORSE){	
-			return new Horse(id, name, age, disease);
-		}
-		else if (animalType==AnimalType.RABBIT){	
-			return new Rabbit(id, name, age, disease);
-		}else {
-			//If an invalid animal type was received it will return null
-			return null;
+		switch(animalType) {
+			case CAT:
+				return new Cat(id, name, age, disease);
+			case DOG:
+				return new Dog(id, name, age, disease);
+			case HAMSTER:
+				return new Hamster(id, name, age, disease);
+			case HORSE:
+				return new Horse(id, name, age, disease);
+			case RABBIT:
+				return new Rabbit(id, name, age, disease);
+			default:
+				//If an invalid animal type was received it will return null
+				return null;
 		}
 	}	
 }

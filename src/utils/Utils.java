@@ -7,8 +7,7 @@ import java.util.Random;
 
 public class Utils {
 
-	// The method readUserNumber will read the input of the user and return it as an
-	// int
+	// The method readUserNumber will read the input of the user and return it as an int
 	// If an invalid type of data were entered by the user it will return -1
 	public static int readUserNumber() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,13 +23,13 @@ public class Utils {
 		return option;
 	}
 
-	// This method generate a random number within a specific range
+	// This method generates a random number within a specific range
 	public static int getRandom(int min, int max) {
 		Random r = new Random();
 		return min + r.nextInt(max - min);
 	}
 
-	// This method generate a random salary within a specific range
+	// This method generates a random salary within a specific range
 	public static int generateRandomSalary(int min, int max) {
 		return getRandom(min, max) * 1000;
 	}

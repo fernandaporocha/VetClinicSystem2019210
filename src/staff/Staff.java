@@ -7,7 +7,7 @@ public class Staff {
 	protected String name;
 	protected int salary;
 	
-	public Staff(int id,String name, int salary) {
+	public Staff(int id, String name, int salary) {
 		this.staffNumber = id;
 		this.name = name;
 		this.salary = salary;
