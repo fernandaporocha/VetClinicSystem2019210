@@ -2,6 +2,7 @@ package staff;
 
 import java.util.ArrayList;
 
+import animal.Animal;
 import utils.CLI;
 import utils.NameGenerator;
 import utils.Utils;
@@ -223,5 +224,22 @@ public class StaffService {
 			CLI.printErrorMessage("There are no staff with the typed name.", false);
 		}
 		CLI.printBreak();
+	}
+		
+	//This method will add all the given animals to a veterinarian waiting list
+	public void assignAnimalToVeterinarian(ArrayList<Animal> animals) {
+		int iStaff = 0;
+		for(Animal animal: animals) {
+			vetStaff.get(iStaff).addAnimal(animal);
+			if (iStaff == 4) {
+				iStaff = 0;
+			} else {
+				iStaff++;
+			}
+			
+			if(iStaff==4) {
+				iStaff=0;
+			}
+		}	
 	}
 }

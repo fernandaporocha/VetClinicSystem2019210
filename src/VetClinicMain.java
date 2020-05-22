@@ -18,7 +18,8 @@ public class VetClinicMain {
 		staffService.createMedicalStaff();
 		//It creates the animal and set them to the veterinarians
 		animalService.createAnimals(1000);
-		
+		//It puts all the created animals in a Veterinarian waiting list 
+		staffService.assignAnimalToVeterinarian(animalService.getAnimals());
 		// It creates the admin staff
 		staffService.createAdminStaff();
 	}
@@ -79,7 +80,7 @@ public class VetClinicMain {
 				case 6:
 					animalService.printAnimalByType();
 					break;
-					//It will print the animals that have the name typed by the user
+				//It will print the animals that have the name typed by the user
 				case 7:
 					animalService.printAnimalByName();
 					break;
