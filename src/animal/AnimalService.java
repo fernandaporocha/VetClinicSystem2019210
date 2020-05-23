@@ -12,19 +12,15 @@ public class AnimalService {
 
 	// The array list animals contains all the created animals
 	private ArrayList<Animal> animals;
-	// The variable animalId is used to generate an unique staff number for each staff
-	private AnimalId animalId;
 
 	// It returns the array list of animals
 	public ArrayList<Animal> getAnimals() {
 		return animals;
 	}
 
-	// AnimalService constructor, instantiates the array list and id manager of
-	// animals
+	// AnimalService constructor, instantiates the array list of animals
 	public AnimalService() {
 		animals = new ArrayList<Animal>();
-		animalId = new AnimalId();
 
 	}
 
@@ -37,7 +33,7 @@ public class AnimalService {
 			// It generates a random type of animal
 			AnimalType animalType = AnimalType.values()[r.nextInt(AnimalType.values().length)];
 			// It will creates a new animal with random name, type, age and disease
-			animal = AnimalFactory.buildAnimal(animalType, animalId.getId(), NameGenerator.getRandomAnimalName(),
+			animal = AnimalFactory.buildAnimal(animalType, NameGenerator.getRandomAnimalName(),
 					r.nextInt(10), NameGenerator.getRandomAnimalDisease());
 			// It adds the created animal to the animal arraylist
 			animals.add(animal);
